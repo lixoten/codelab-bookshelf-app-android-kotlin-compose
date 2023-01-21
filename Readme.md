@@ -14,7 +14,6 @@ Some goals
 
 
 ### ScreenShots
-![|100](screenshot_01.png) ![|100](screenshot_02.png) ![|100](screenshot_03.png)
 <p style=float:left">
   <img src="screenshot_01.png" width="200" />
   <img src="screenshot_02.png" width="200" />
