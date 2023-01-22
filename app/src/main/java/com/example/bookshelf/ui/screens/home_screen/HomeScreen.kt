@@ -33,11 +33,13 @@ import com.example.bookshelf.ui.theme.BookshelfTheme
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: BookshelfViewModel,
+    viewModel: HomeViewModel,
     retryAction: () -> Unit,
+    onDetailsClick: (Book) -> Unit,
 ) {
     val uiState = viewModel.uiState.collectAsState().value
     val uiStateQuery = viewModel.uiStateSearch.collectAsState().value
+
 
     val focusManager = LocalFocusManager.current
     // Notes:  using viewModel to hold the state of query
@@ -76,17 +78,18 @@ fun HomeScreen(
         )
 
         when (uiState) {
-            is BookshelfUiState.Loading -> LoadingScreen(modifier)
-            is BookshelfUiState.Success -> GridScreen(
+            is HomeUiState.Loading -> LoadingScreen(modifier)
+            is HomeUiState.Success -> GridScreen(
                 bookshelfList = uiState.bookshelfList,
-                modifier = modifier
+                modifier = modifier,
+                onDetailsClick = onDetailsClick
             )
             // Notes: This was to display a List of books instead of Grid
             // is BookshelfUiState.Success -> ListScreen(
             //     bookshelfList = uiState.bookshelfList,
             //     modifier = modifier
             // )
-            is BookshelfUiState.Error ->
+            is HomeUiState.Error ->
                 ErrorScreen(retryAction = retryAction, modifier)
         }
     }
@@ -167,7 +170,8 @@ fun HomeScreenPreview() {
         }
         GridScreen(
             bookshelfList = mockData,
-            modifier = Modifier
+            modifier = Modifier,
+            onDetailsClick = { }
         )
     }
 }

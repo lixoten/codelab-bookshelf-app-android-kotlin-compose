@@ -1,4 +1,4 @@
-package com.example.bookshelf.ui.screens.home_screen
+package com.example.bookshelf.ui.screens.detail_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -9,50 +9,31 @@ import com.example.bookshelf.BookshelfApplication
 import com.example.bookshelf.data.BookshelfRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
 
-class BookshelfViewModel(
+class DetailsViewModel(
     private val bookshelfRepository: BookshelfRepository
 ): ViewModel() {
-    private val _uiState = MutableStateFlow<BookshelfUiState>(BookshelfUiState.Loading)
-    val uiState = _uiState.asStateFlow()
+    private val _uiStateDetail = MutableStateFlow<DetailsUiState>(DetailsUiState.Loading)
+    val uiStateDetail = _uiStateDetail.asStateFlow()
 
-    private val _uiStateSearch = MutableStateFlow(SearchUiState())
-    val uiStateSearch = _uiStateSearch.asStateFlow()
 
-    init {
-        getBooks()
-    }
-
-    fun updateQuery(query: String){
-        _uiStateSearch.update { currentState ->
-            currentState.copy(
-                query = query
-            )
-        }
-    }
-
-    fun getBooks(query: String = "travel") {
+    fun getBook(id: String) {
         viewModelScope.launch {
-            _uiState.value = BookshelfUiState.Loading
-
-            _uiState.value = try {
+            _uiStateDetail.value = try {
                 // Notes: List<Book>? NULLABLE
-                val books = bookshelfRepository.getBooks(query)
-                if (books == null) {
-                    BookshelfUiState.Error
-                } else if (books.isEmpty()){
-                    BookshelfUiState.Success(emptyList())
+                val book = bookshelfRepository.getBook(id)
+                if (book == null) {
+                    DetailsUiState.Error
                 } else{
-                    BookshelfUiState.Success(books)
+                    DetailsUiState.Success(book)
                 }
             } catch (e: IOException) {
-                BookshelfUiState.Error
+                DetailsUiState.Error
             } catch (e: HttpException) {
-                BookshelfUiState.Error
+                DetailsUiState.Error
             }
         }
     }
@@ -66,7 +47,7 @@ class BookshelfViewModel(
                 val application =
                     (this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as BookshelfApplication)
                 val bookshelfRepository = application.container.bookshelfRepository
-                BookshelfViewModel(bookshelfRepository = bookshelfRepository)
+                DetailsViewModel(bookshelfRepository = bookshelfRepository)
             }
         }
     }

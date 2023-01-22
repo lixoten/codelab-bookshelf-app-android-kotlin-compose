@@ -24,4 +24,18 @@ class DefaultBookshelfRepository(
             null
         }
     }
+
+    override suspend fun getBook(id: String): Book? {
+        return try {
+            val res = bookshelfApiService.getBook(id)
+            if (res.isSuccessful) {
+                res.body()
+            } else {
+                null
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
 }
