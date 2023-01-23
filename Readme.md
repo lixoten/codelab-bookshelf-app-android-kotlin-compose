@@ -4,19 +4,21 @@ Simple app to demonstrate internet access.
 The App display asynchronously downloaded images of the books along with their titles in a vertical grid.
 Clicking on an item in Grid brings up a Details Screen
 In Addition the app lets the user Search for Books
+We can favor/un-favor books. These will be displayed in a favorite screen
 
 Some goals
 - use Google Book API
-- multiple screens
-- use NavHost
+- multiple screens to use NavHost
 - Use repository
 - Use Dependency Injection Container
 - use multiple viewModels
 - use multiple uiState
-- use allow user to search
-- NavigateUp(Bacl Arrow in TopAppBar)
+- allow user to search
+- NavigateUp(Back Arrow in TopAppBar)
 - use rememberScrollState
 
+
+[App was a based on Codelab "Project: Create a Bookshelf app" at developer.android](https://developer.android.com/courses/pathways/android-basics-compose-unit-5-pathway-2#codelab-https://developer.android.com/codelabs/basic-android-kotlin-compose-bookshelf )
 
 ### ScreenShots
 <p style=float:left">

@@ -5,6 +5,15 @@
     <string name="loading_image_content_descr">Loading</string>
     <string name="failed_to_load_msg">Failed to load!!!</string>
     <string name="no_records_found_msg">Nothing found. Try a different search.</string>
-    <string name="book_details">Book $s</string>
+    <string name="book_details"><b>Book</b> $s</string>
     <string name="search_placeholder">Search for …</string>
+
+    <string name="book_title"><i>Title:</i> %s</string>
+    <string name="book_subtitle"><u>Subtitle:</u> %s</string>
+    <string name="book_authors"><b>Authors:</b> %s</string>
+    <string name="book_price"><b>Price:</b> %s</string>
+
+    <string name="btn_search">Search Google Library</string>
+    <string name="btn_favorite">My Favorite Books</string>
+    <string name="NoFavoriteBooksText">No Favorite Books.</string>
 </resources>

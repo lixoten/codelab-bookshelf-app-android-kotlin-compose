@@ -3,6 +3,10 @@ package com.example.bookshelf.ui
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -11,11 +15,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.bookshelf.AppDestinations
 import com.example.bookshelf.BookshelfNavHost
 import com.example.bookshelf.ui.screens.components.MyTopAppBar
-import com.example.bookshelf.ui.screens.home_screen.HomeViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BookshelfApp(
-    viewModel: HomeViewModel,
     modifier: Modifier = Modifier
 ) {
     // Notes: Set Nav Controller
@@ -25,12 +28,11 @@ fun BookshelfApp(
 
     // Notes: Get the name of the current screen check for null
     val currentScreen = AppDestinations.valueOf(
-        backStackEntry?.destination?.route ?: AppDestinations.HomeScreen.name
+        backStackEntry?.destination?.route ?: AppDestinations.QueryScreen.name
     )
 
     // Notes: Boolean to check if we can nagigate back. Check stack
     val canNavigateBack = navController.previousBackStackEntry != null
-
 
     Scaffold(
         topBar = {
@@ -45,10 +47,10 @@ fun BookshelfApp(
             modifier = modifier
                 .fillMaxSize()
                 .padding(it),
-            color = MaterialTheme.colors.background
+            color = MaterialTheme.colorScheme.background
+
         ) {
             BookshelfNavHost(
-                viewModel = viewModel,
                 navController = navController,
                 modifier = modifier
             )
