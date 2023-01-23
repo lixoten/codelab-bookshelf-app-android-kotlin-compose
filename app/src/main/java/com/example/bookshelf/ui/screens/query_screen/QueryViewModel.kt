@@ -110,7 +110,7 @@ class QueryViewModel(
     }
 
 
-    // Notes: Question: At moment this is chuck of code is repeated in twu files
+    // Notes: Question: At moment this is chuck of code is repeated in two files
     //  in QueryViewModel and in DetailsViewModel.
     //  what can I do/ place it so as not to have repeat code? I tried but I got a bunch of errors
     /**

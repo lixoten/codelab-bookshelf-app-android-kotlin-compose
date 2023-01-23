@@ -130,7 +130,7 @@ private fun GridItem(
             }
             if (expanded) {
                 Column() {
-                    // Notes: Question: Is there a way to bol just a part of the string?
+                    // Notes: Question: Is there a way to bold just a part of the string?
                     //  I red that we can use <b> and <i> and others...
                     //  but is is not working...inside res > strings.xml
                     Text(

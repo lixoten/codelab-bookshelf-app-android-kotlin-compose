@@ -18,6 +18,14 @@ Some goals
 - use rememberScrollState
 
 
+## Need to Revisit
+- Search for string "Questions:"
+  - Basically.... How not to pass the viewModel downwards to composables
+  - Hoist Favorites up a couple of composables up.. not sure how to do it
+  - bold just a part of the string?
+  - not repeat/duplicate code block for factory
+
+
 [App was a based on Codelab "Project: Create a Bookshelf app" at developer.android](https://developer.android.com/courses/pathways/android-basics-compose-unit-5-pathway-2#codelab-https://developer.android.com/codelabs/basic-android-kotlin-compose-bookshelf )
 
 ### ScreenShots
