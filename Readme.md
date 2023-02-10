@@ -1,12 +1,19 @@
 # Demo Internet Access App - Bookshelf App
+Simple app to demonstrate internet access.  
+The app lets the user Search for Books via Google Book API  
+The App display asynchronously downloaded images of the books along with their titles in a vertical grid.  
 
-Simple app to demonstrate internet access.
-The App display asynchronously downloaded images of the books along with their titles in a vertical grid.
-Clicking on an item in Grid brings up a Details Screen
-In Addition the app lets the user Search for Books
-We can favor/un-favor books. These will be displayed in a favorite screen
+### In Addition to project requirements I did the following
+- Added new feature. Tag book as favorite
+  - A favorite button is displayed with each book item
+  - Clicking on the Favorite Button add/removes the book from the favorite list  
+  - A new Favorite Book screen (Display the list of books that have been 
+tagged as favorite)
+  - New Book Detail Screen (via clicking on a book)  
+**Note** - Favorite books is not saved to a Room database, (have not learned room DB yet, will return to this project for that)
 
-Some goals
+
+### Some goals
 - use Google Book API
 - multiple screens to use NavHost
 - Use repository
@@ -30,7 +37,7 @@ Some goals
 
 ### ScreenShots
 <p style=float:left">
-  <img src="screenshot_01.png" width="200" />
+  <img src="screenshot_001.png" width="200" />
   <img src="screenshot_02.png" width="200" />
   <img src="screenshot_03.png" width="200" />
 </p>
@@ -38,7 +45,8 @@ Some goals
   <img src="screenshot_04.png" width="200" />
   <img src="screenshot_05.png" width="200" />
   <img src="screenshot_06.png" width="200" />
+  <img src="screenshot_07.png" width="200" />
 </p>
 ---
 
-ref: demo-internet-access-bookshelf-app-android-kotlin-compose
+ref: codelab-bookshelf-app-android-kotlin-compose
